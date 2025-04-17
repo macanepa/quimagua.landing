@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="es-CL" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sociedad Quimagua Chile SPA - Soluciones Químicas para Agua</title>
+    <meta name="description"
+        content="Sociedad Quimagua Chile SPA: Expertos en tratamiento de aguas industriales, productos químicos y equipos. Calidad y confianza desde 2010.">
+    <meta name="referrer" content="same-origin">
+    <link rel="canonical" href="https://www.quimagua.cl/">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Simple animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translate3d(0, 20px, 0);
+            }
+
+            to {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+            /* Start hidden */
+        }
+
+        /* Add delays for staggered effect if needed */
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+
+        .delay-4 {
+            animation-delay: 0.8s;
+        }
+
+        /* Custom background with overlay */
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1553774852-409b70183091?q=80&w=1920&auto=format&fit=crop');
+            /* Example background */
+            background-size: cover;
+            background-position: center;
+        }
+
+        .section-bg {
+            background-image: linear-gradient(rgba(240, 248, 255, 0.85), rgba(240, 248, 255, 0.85)), url('https://images.unsplash.com/photo-1617150097111-8235e7d1ae8a?q=80&w=1920&auto=format&fit=crop');
+            /* Lighter background example */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            /* Parallax effect */
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="images/logoqaspa-295.webp" alt="Logo Quimagua" class="h-10 w-auto mr-3"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <span class="text-xl font-bold text-blue-900">Sociedad Quimagua Chile SPA</span>
+            </div>
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="#home" class="text-gray-600 hover:text-blue-700 transition duration-300">Inicio</a>
+                <a href="#about" class="text-gray-600 hover:text-blue-700 transition duration-300">Nosotros</a>
+                <a href="#products" class="text-gray-600 hover:text-blue-700 transition duration-300">Productos</a>
+                <a href="#services" class="text-gray-600 hover:text-blue-700 transition duration-300">Servicios y
+                    Equipos</a>
+                <a href="#contact"
+                    class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full transition duration-300">Contacto</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-600 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="md:hidden hidden bg-white py-2">
+            <a href="#home" class="block px-6 py-2 text-gray-600 hover:bg-gray-100">Inicio</a>
+            <a href="#about" class="block px-6 py-2 text-gray-600 hover:bg-gray-100">Nosotros</a>
+            <a href="#products" class="block px-6 py-2 text-gray-600 hover:bg-gray-100">Productos</a>
+            <a href="#services" class="block px-6 py-2 text-gray-600 hover:bg-gray-100">Servicios y Equipos</a>
+            <a href="#contact" class="block px-6 py-2 text-blue-600 font-bold hover:bg-gray-100">Contacto</a>
+        </div>
+    </header>
+
+    <section id="home" class="hero-bg text-white pt-24 pb-32">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 fade-in-up">Bienvenido a Sociedad Quimagua Chile SPA</h1>
+            <p class="text-xl md:text-2xl mb-8 fade-in-up delay-1">Su socio experto en productos químicos y equipos para
+                el tratamiento de aguas.</p>
+            <p class="text-lg mb-12 fade-in-up delay-2">Calidad y confianza en cada solución que ofrecemos para la
+                industria nacional.</p>
+            <a href="#contact"
+                class="bg-white text-blue-700 font-bold py-3 px-8 rounded-full hover:bg-gray-200 transition duration-300 fade-in-up delay-3">Contáctenos
+                Hoy</a>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-blue-900 fade-in-up">Nuestra Trayectoria
+            </h2>
+            <div class="grid md:grid-cols-3 gap-10">
+                <div class="bg-gray-100 p-6 rounded-lg shadow-lg fade-in-up delay-1">
+                    <h3 class="text-2xl font-bold mb-3 text-blue-800">Origen </h3>
+                    <p class="text-gray-700">Fundada en enero de 2010, Sociedad Quimagua Chile SpA nació para satisfacer
+                        las necesidades de la industria nacional en especialidades químicas, enfocándonos en el
+                        tratamiento de aguas industriales, de proceso y residuales, además de la distribución de insumos
+                        químicos específicos.</p>
+                </div>
+                <div class="bg-gray-100 p-6 rounded-lg shadow-lg fade-in-up delay-2">
+                    <h3 class="text-2xl font-bold mb-3 text-blue-800">Misión </h3>
+                    <p class="text-gray-700">Fabricamos productos químicos con el objetivo de dar una solución integral
+                        a los problemas de corrosión, incrustación y otros desafíos asociados al uso del agua en la
+                        industria. Buscamos satisfacer y superar constantemente las expectativas de nuestros
+                        clientes.</p>
+                </div>
+                <div class="bg-gray-100 p-6 rounded-lg shadow-lg fade-in-up delay-3">
+                    <h3 class="text-2xl font-bold mb-3 text-blue-800">Visión </h3>
+                    <p class="text-gray-700">Aspiramos a posicionarnos entre las tres mejores empresas de tratamiento de
+                        aguas a nivel nacional. Seremos competitivos y confiables, entregando siempre soluciones
+                        integrales a los problemas de nuestros clientes.</p>
+                </div>
+            </div>
+            <p class="text-center mt-10 text-lg text-gray-700 fade-in-up delay-4">Contamos con un equipo de
+                profesionales con más de 10 años de experiencia, dedicados a entregar un servicio integral que incluye
+                asesoría técnica, desarrollo de proyectos y un sólido servicio postventa.</p>
+        </div>
+    </section>
+
+    <section id="products" class="py-20 section-bg">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-blue-900 fade-in-up">Nuestros Productos
+                Químicos </h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-lg fade-in-up delay-1">
+                    <h3 class="text-xl font-bold mb-2 text-blue-800">Anticorrosivos</h3>
+                    <ul class="list-disc list-inside text-gray-700 space-y-1">
+                        <li>Calderas (Vapor y Agua Caliente) </li>
+                        <li>Condensadores Evaporativos y Torres de Enfriamiento </li>
+                        <li>Circuitos Cerrados, Anticongelantes y Chillers </li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg fade-in-up delay-2">
+                    <h3 class="text-xl font-bold mb-2 text-blue-800">Antiincrustantes</h3>
+                    <ul class="list-disc list-inside text-gray-700 space-y-1">
+                        <li>Calderas Generadoras de Vapor </li>
+                        <li>Condensadores Evaporativos y Torres de Enfriamiento </li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg fade-in-up delay-3">
+                    <h3 class="text-xl font-bold mb-2 text-blue-800">Biocidas</h3>
+                    <ul class="list-disc list-inside text-gray-700 space-y-1">
+                        <li>Condensadores Evaporativos y Torres de Enfriamiento </li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg fade-in-up delay-1">
+                    <h3 class="text-xl font-bold mb-2 text-blue-800">Floculantes y Coagulantes</h3>
+                    <ul class="list-disc list-inside text-gray-700 space-y-1">
+                        <li>Clarificación de Aguas y RILES </li>
+                        <li>Deshidratación de Lodos </li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg fade-in-up delay-2">
+                    <h3 class="text-xl font-bold mb-2 text-blue-800">Anticongelantes</h3>
+                    <ul class="list-disc list-inside text-gray-700 space-y-1">
+                        <li>Monoetilenglicol </li>
+                        <li>Propilenglicol </li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg fade-in-up delay-3 flex items-center justify-center">
+                    <p class="text-lg text-center text-gray-600">Y otras especialidades químicas para la industria
+                        general.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-blue-900 fade-in-up">Servicios y Equipos
+            </h2>
+            <div class="grid lg:grid-cols-2 gap-16">
+                <div class="fade-in-up delay-1">
+                    <h3 class="text-2xl font-bold mb-6 text-blue-800">Servicios Integrales </h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="currentColor"
+                                viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Asistencia técnica post venta especializada.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="currentColor"
+                                viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Visitas periódicas adaptadas a su tratamiento químico.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="currentColor"
+                                viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Limpiezas químicas eficientes para equipos y líneas de transporte de agua.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="fade-in-up delay-2">
+                    <h3 class="text-2xl font-bold mb-6 text-blue-800">Equipamiento de Calidad</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-blue-500 mr-3 flex-shrink-0" fill="currentColor"
+                                viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Bombas dosificadoras, filtros, sistemas de dosificación (manual/automático),
+                                ablandadores.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-blue-500 mr-3 flex-shrink-0" fill="currentColor"
+                                viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Sistemas de potabilización de agua, caudalímetros, control automático de
+                                purgas.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 section-bg">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-blue-900 fade-in-up">Póngase en Contacto
+            </h2>
+            <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-xl fade-in-up delay-1">
+                <p class="text-center text-lg text-gray-700 mb-8">Para más información sobre nuestros productos y
+                    servicios, o para realizar un pedido, no dude en contactarnos. Estamos aquí para ayudarle.</p>
+                <div class="grid md:grid-cols-2 gap-10">
+                    <form action="#" method="POST">
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-700 font-bold mb-2">Nombre</label>
+                            <input type="text" id="name" name="nombre" placeholder="Su nombre completo" required
+                                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-gray-700 font-bold mb-2">Email</label>
+                            <input type="email" id="email" name="email" placeholder="Su correo electrónico" required
+                                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-gray-700 font-bold mb-2">Mensaje</label>
+                            <textarea id="message" name="mensaje" rows="4" placeholder="Su consulta o requerimiento"
+                                required
+                                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+
+                        </div>
+                        <div class="text-center">
+                            <button type="submit"
+                                class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full transition duration-300">
+                                Enviar Mensaje
+                            </button>
+                        </div>
+                    </form>
+
+                    <div class="space-y-6">
+                        <h3 class="text-xl font-bold text-blue-800 border-b pb-2">Información de Contacto Directo</h3>
+                        <div>
+                            <p class="flex items-center mb-2">
+                                <svg class="w-5 h-5 text-blue-600 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M10 2a5 5 0 00-5 5c0 1.274.44 2.46 1.197 3.426l-.001.002 3.72 5.177a1 1 0 001.63-.01l.006-.008 3.715-5.17A5.002 5.002 0 0015 7a5 5 0 00-5-5zm0 8a3 3 0 110-6 3 3 0 010 6z">
+                                    </path>
+                                </svg>
+                                <strong class="mr-2">Alfredo Canepa M.</strong>
+                            </p>
+                            <p class="ml-7 mb-4 text-gray-700">
+                                <a href="tel:+56968346728" class="hover:text-blue-700">+56 9 6834 6728</a><br>
+                                <a href="mailto:ar.canepa@quimagua.cl"
+                                    class="hover:text-blue-700">ar.canepa@quimagua.cl</a>
+                            </p>
+                        </div>
+                        <div>
+                            <p class="flex items-center mb-2">
+                                <svg class="w-5 h-5 text-blue-600 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M10 2a5 5 0 00-5 5c0 1.274.44 2.46 1.197 3.426l-.001.002 3.72 5.177a1 1 0 001.63-.01l.006-.008 3.715-5.17A5.002 5.002 0 0015 7a5 5 0 00-5-5zm0 8a3 3 0 110-6 3 3 0 010 6z">
+                                    </path>
+                                </svg>
+                                <strong class="mr-2">Luis Galvez O.</strong>
+                            </p>
+                            <p class="ml-7 text-gray-700">
+                                <a href="tel:+56974792802" class="hover:text-blue-700">+56 9 7479 2802</a><br>
+                                <a href="mailto:le.galvez@quimagua.cl"
+                                    class="hover:text-blue-700">le.galvez@quimagua.cl</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-gray-300 py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2025 Sociedad Quimagua Chile SPA. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Basic Mobile Menu Toggle
+        const menuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Simple fade-in animation on scroll (optional, requires more complex setup for production)
+        const faders = document.querySelectorAll('.fade-in-up');
+        const appearOptions = {
+            threshold: 0.2, // Trigger when 20% of the element is visible
+            rootMargin: "0px 0px -50px 0px" // Start animation slightly before element fully enters viewport
+        };
+
+        const appearOnScroll = new IntersectionObserver(function (entries, observer) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return;
+                } else {
+                    entry.target.style.opacity = 1; // Make visible
+                    entry.target.style.animationPlayState = 'running'; // Start animation
+                    observer.unobserve(entry.target); // Stop observing once animated
+                }
+            });
+        }, appearOptions);
+
+        faders.forEach(fader => {
+            appearOnScroll.observe(fader);
+        });
+
+    </script>
+
+</body>
+
+</html>
