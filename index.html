@@ -12,13 +12,13 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
         }
 
-        /* Simple animation */
+        /* Animation keyframes */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -34,10 +34,9 @@
         .fade-in-up {
             animation: fadeInUp 0.8s ease-out forwards;
             opacity: 0;
-            /* Start hidden */
         }
 
-        /* Add delays for staggered effect if needed */
+        /* Animation delays */
         .delay-1 {
             animation-delay: 0.2s;
         }
@@ -54,139 +53,381 @@
             animation-delay: 0.8s;
         }
 
-        /* Custom background with overlay */
+        /* Card hover effects */
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Hero section styling */
         .hero-bg {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1553774852-409b70183091?q=80&w=1920&auto=format&fit=crop');
-            /* Example background */
+            background-image: linear-gradient(rgba(68, 136, 204, 0), rgba(0, 32, 64, 0)), url('/assets/images/hero.webp');
             background-size: cover;
             background-position: center;
         }
 
+        /* Alternate section backgrounds */
         .section-bg {
-            background-image: linear-gradient(rgba(240, 248, 255, 0.85), rgba(240, 248, 255, 0.85)), url('https://images.unsplash.com/photo-1617150097111-8235e7d1ae8a?q=80&w=1920&auto=format&fit=crop');
-            /* Lighter background example */
+            position: relative;
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
-            /* Parallax effect */
+            overflow: hidden;
+        }
+
+        .section-bg::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('/assets/images/hero.webp');
+            background-size: cover;
+            background-position: center;
+            filter: blur(8px);
+            z-index: -1;
+        }
+
+        .section-bg::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(245, 250, 255, 0.94), rgba(245, 250, 255, 0.94));
+            z-index: -1;
+        }
+
+        /* Custom button styles */
+        .btn-primary {
+            background-image: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(37, 99, 235, 0.15);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 7px 14px rgba(37, 99, 235, 0.25);
+        }
+
+        /* Custom product card hover effects */
+        .product-card {
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+
+        .product-card:hover {
+            border-left: 4px solid #3b82f6;
+            transform: translateX(5px);
+        }
+
+        /* Fancy separator */
+        .fancy-separator {
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #3b82f6, transparent);
+            width: 100px;
+            margin: 0 auto;
         }
     </style>
 </head>
 
 <body class="bg-gray-50 text-gray-800">
 
+    <!-- Modern Sleek Header -->
     <header class="bg-white shadow-md sticky top-0 z-50">
-        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <div class="flex items-center">
-                <img src="images/logoqaspa-295.webp" alt="Logo Quimagua" class="h-10 w-auto mr-3"
-                    onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                <span class="text-xl font-bold text-blue-900">Sociedad Quimagua Chile SPA</span>
-            </div>
-            <div class="hidden md:flex items-center space-x-6">
-                <a href="#home" class="text-gray-600 hover:text-blue-700 transition duration-300">Inicio</a>
-                <a href="#about" class="text-gray-600 hover:text-blue-700 transition duration-300">Nosotros</a>
-                <a href="#products" class="text-gray-600 hover:text-blue-700 transition duration-300">Productos</a>
-                <a href="#services" class="text-gray-600 hover:text-blue-700 transition duration-300">Servicios y
-                    Equipos</a>
-                <a href="#contact"
-                    class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full transition duration-300">Contacto</a>
-            </div>
-            <div class="md:hidden">
-                <button id="mobile-menu-button" class="text-gray-600 focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16m-7 6h7"></path>
-                    </svg>
-                </button>
-            </div>
-        </nav>
-        <div id="mobile-menu" class="md:hidden hidden bg-white py-2">
-            <a href="#home" class="block px-6 py-2 text-gray-600 hover:bg-gray-100">Inicio</a>
-            <a href="#about" class="block px-6 py-2 text-gray-600 hover:bg-gray-100">Nosotros</a>
-            <a href="#products" class="block px-6 py-2 text-gray-600 hover:bg-gray-100">Productos</a>
-            <a href="#services" class="block px-6 py-2 text-gray-600 hover:bg-gray-100">Servicios y Equipos</a>
-            <a href="#contact" class="block px-6 py-2 text-blue-600 font-bold hover:bg-gray-100">Contacto</a>
+        <div class="container mx-auto px-6">
+            <nav class="flex justify-between items-center h-20">
+                <div class="flex items-center space-x-2">
+                    <div
+                        class="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg flex items-center justify-center text-white font-bold text-xl">
+                        Q</div>
+                    <span class="text-xl font-bold text-gray-800">Sociedad Quimagua Chile</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home"
+                        class="text-gray-600 hover:text-blue-600 transition duration-300 font-medium">Inicio</a>
+                    <a href="#about"
+                        class="text-gray-600 hover:text-blue-600 transition duration-300 font-medium">Nosotros</a>
+                    <a href="#products"
+                        class="text-gray-600 hover:text-blue-600 transition duration-300 font-medium">Productos</a>
+                    <a href="#services"
+                        class="text-gray-600 hover:text-blue-600 transition duration-300 font-medium">Servicios</a>
+                    <a href="#contact" class="btn-primary text-white font-medium py-2 px-6 rounded-full">Contacto</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-600 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+            </nav>
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden bg-white py-2 shadow-inner">
+            <a href="#home" class="block px-6 py-3 text-gray-600 hover:bg-blue-50 hover:text-blue-600">Inicio</a>
+            <a href="#about" class="block px-6 py-3 text-gray-600 hover:bg-blue-50 hover:text-blue-600">Nosotros</a>
+            <a href="#products" class="block px-6 py-3 text-gray-600 hover:bg-blue-50 hover:text-blue-600">Productos</a>
+            <a href="#services" class="block px-6 py-3 text-gray-600 hover:bg-blue-50 hover:text-blue-600">Servicios</a>
+            <a href="#contact" class="block px-6 py-3 text-blue-600 font-medium hover:bg-blue-50">Contacto</a>
         </div>
     </header>
 
-    <section id="home" class="hero-bg text-white pt-24 pb-32">
-        <div class="container mx-auto px-6 text-center">
-            <h1 class="text-4xl md:text-6xl font-bold mb-4 fade-in-up">Bienvenido a Sociedad Quimagua Chile SPA</h1>
-            <p class="text-xl md:text-2xl mb-8 fade-in-up delay-1">Su socio experto en productos químicos y equipos para
-                el tratamiento de aguas.</p>
-            <p class="text-lg mb-12 fade-in-up delay-2">Calidad y confianza en cada solución que ofrecemos para la
-                industria nacional.</p>
+    <!-- Modern Hero Section -->
+    <section id="home" class="hero-bg text-white pt-28 pb-32 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-blue-900 to-blue-800 opacity-80"></div>
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 fade-in-up">Bienvenido a <span
+                    class="bg-clip-text text-transparent bg-gradient-to-r from-blue-200 to-white">Quimagua
+                    Chile</span>
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 fade-in-up delay-1 max-w-3xl mx-auto text-blue-100">Su socio experto en
+                productos químicos y equipos para el tratamiento de aguas industriales.</p>
+            <p class="text-lg mb-12 fade-in-up delay-2 max-w-2xl mx-auto">Calidad y confianza en cada solución que
+                ofrecemos para la industria nacional.</p>
             <a href="#contact"
-                class="bg-white text-blue-700 font-bold py-3 px-8 rounded-full hover:bg-gray-200 transition duration-300 fade-in-up delay-3">Contáctenos
-                Hoy</a>
+                class="inline-block bg-white text-blue-800 font-bold py-3 px-10 rounded-full hover:bg-gray-100 transition duration-300 fade-in-up delay-3 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                Contáctenos Hoy
+            </a>
         </div>
+        <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white to-transparent"></div>
     </section>
 
-    <section id="about" class="py-20 bg-white">
+    <!-- About Section with Modern Cards -->
+    <section id="about" class="py-24 bg-white">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-blue-900 fade-in-up">Nuestra Trayectoria
-            </h2>
-            <div class="grid md:grid-cols-3 gap-10">
-                <div class="bg-gray-100 p-6 rounded-lg shadow-lg fade-in-up delay-1">
-                    <h3 class="text-2xl font-bold mb-3 text-blue-800">Origen </h3>
-                    <p class="text-gray-700">Fundada en enero de 2010, Sociedad Quimagua Chile SpA nació para satisfacer
-                        las necesidades de la industria nacional en especialidades químicas, enfocándonos en el
-                        tratamiento de aguas industriales, de proceso y residuales, además de la distribución de insumos
-                        químicos específicos.</p>
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 fade-in-up">Nuestra Trayectoria</h2>
+                <div class="fancy-separator my-4 fade-in-up delay-1"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Origen Card -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover animate-in delay-1">
+                    <div class="h-2 bg-gradient-to-r from-blue-500 to-indigo-600"></div>
+                    <div class="p-8">
+                        <div class="flex items-center mb-6">
+                            <div
+                                class="w-12 h-12 flex items-center justify-center rounded-full bg-blue-100 text-blue-600">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                                </svg>
+                            </div>
+                            <h3 class="ml-4 text-2xl font-bold text-gray-800">Origen</h3>
+                        </div>
+                        <p class="text-gray-600 leading-relaxed">Fundada en enero de 2010, Sociedad Quimagua Chile SpA
+                            nació para satisfacer las necesidades de la industria nacional en especialidades químicas,
+                            enfocándonos en el tratamiento de aguas industriales, de proceso y residuales, además de la
+                            distribución de insumos químicos específicos.</p>
+                    </div>
                 </div>
-                <div class="bg-gray-100 p-6 rounded-lg shadow-lg fade-in-up delay-2">
-                    <h3 class="text-2xl font-bold mb-3 text-blue-800">Misión </h3>
-                    <p class="text-gray-700">Fabricamos productos químicos con el objetivo de dar una solución integral
-                        a los problemas de corrosión, incrustación y otros desafíos asociados al uso del agua en la
-                        industria. Buscamos satisfacer y superar constantemente las expectativas de nuestros
-                        clientes.</p>
+
+                <!-- Misión Card -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover animate-in delay-2">
+                    <div class="h-2 bg-gradient-to-r from-indigo-500 to-purple-600"></div>
+                    <div class="p-8">
+                        <div class="flex items-center mb-6">
+                            <div
+                                class="w-12 h-12 flex items-center justify-center rounded-full bg-indigo-100 text-indigo-600">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                                </svg>
+                            </div>
+                            <h3 class="ml-4 text-2xl font-bold text-gray-800">Misión</h3>
+                        </div>
+                        <p class="text-gray-600 leading-relaxed">Fabricamos productos químicos con el objetivo de dar
+                            una solución integral a los problemas de corrosión, incrustación y otros desafíos asociados
+                            al uso del agua en la industria. Buscamos satisfacer y superar constantemente las
+                            expectativas de nuestros clientes.</p>
+                    </div>
                 </div>
-                <div class="bg-gray-100 p-6 rounded-lg shadow-lg fade-in-up delay-3">
-                    <h3 class="text-2xl font-bold mb-3 text-blue-800">Visión </h3>
-                    <p class="text-gray-700">Aspiramos a posicionarnos entre las tres mejores empresas de tratamiento de
-                        aguas a nivel nacional. Seremos competitivos y confiables, entregando siempre soluciones
-                        integrales a los problemas de nuestros clientes.</p>
+
+                <!-- Visión Card -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover animate-in delay-3">
+                    <div class="h-2 bg-gradient-to-r from-purple-500 to-pink-600"></div>
+                    <div class="p-8">
+                        <div class="flex items-center mb-6">
+                            <div
+                                class="w-12 h-12 flex items-center justify-center rounded-full bg-purple-100 text-purple-600">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </div>
+                            <h3 class="ml-4 text-2xl font-bold text-gray-800">Visión</h3>
+                        </div>
+                        <p class="text-gray-600 leading-relaxed">Aspiramos a posicionarnos entre las tres mejores
+                            empresas de tratamiento de aguas a nivel nacional. Seremos competitivos y confiables,
+                            entregando siempre soluciones integrales a los problemas de nuestros clientes.</p>
+                    </div>
                 </div>
             </div>
-            <p class="text-center mt-10 text-lg text-gray-700 fade-in-up delay-4">Contamos con un equipo de
-                profesionales con más de 10 años de experiencia, dedicados a entregar un servicio integral que incluye
-                asesoría técnica, desarrollo de proyectos y un sólido servicio postventa.</p>
+
+            <div class="text-center mt-16 max-w-3xl mx-auto">
+                <p class="text-lg text-gray-700 fade-in-up delay-4">Contamos con un equipo de profesionales con más de
+                    10 años de experiencia, dedicados a entregar un servicio integral que incluye asesoría técnica,
+                    desarrollo de proyectos y un sólido servicio postventa.</p>
+            </div>
         </div>
     </section>
 
-    <section id="products" class="py-20 section-bg">
+    <!-- Products Section with Modern Cards -->
+    <section id="products" class="py-24 section-bg">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-blue-900 fade-in-up">Nuestros Productos
-                Químicos </h2>
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 fade-in-up">Nuestros Productos Químicos</h2>
+                <div class="fancy-separator my-4 fade-in-up delay-1"></div>
+            </div>
+
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded-lg shadow-lg fade-in-up delay-1">
-                    <h3 class="text-xl font-bold mb-2 text-blue-800">Anticorrosivos</h3>
-                    <ul class="list-disc list-inside text-gray-700 space-y-1">
-                        <li>Calderas (Vapor y Agua Caliente) </li>
-                        <li>Condensadores Evaporativos y Torres de Enfriamiento </li>
-                        <li>Circuitos Cerrados, Anticongelantes y Chillers </li>
-                    </ul>
+                <!-- Product 1 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md product-card fade-in-up delay-1">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div
+                                class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 mr-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-blue-800">Anticorrosivos</h3>
+                        </div>
+                        <ul class="space-y-2 pl-4">
+                            <li class="flex items-start">
+                                <svg class="w-4 h-4 text-blue-500 mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-gray-700">Calderas (Vapor y Agua Caliente)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-4 h-4 text-blue-500 mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-gray-700">Condensadores Evaporativos y Torres de Enfriamiento</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-4 h-4 text-blue-500 mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-gray-700">Circuitos Cerrados, Anticongelantes y Chillers</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg fade-in-up delay-2">
-                    <h3 class="text-xl font-bold mb-2 text-blue-800">Antiincrustantes</h3>
-                    <ul class="list-disc list-inside text-gray-700 space-y-1">
-                        <li>Calderas Generadoras de Vapor </li>
-                        <li>Condensadores Evaporativos y Torres de Enfriamiento </li>
-                    </ul>
+
+                <!-- Product 2 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md product-card fade-in-up delay-2">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div
+                                class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 mr-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-indigo-800">Antiincrustantes</h3>
+                        </div>
+                        <ul class="space-y-2 pl-4">
+                            <li class="flex items-start">
+                                <svg class="w-4 h-4 text-indigo-500 mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-gray-700">Calderas Generadoras de Vapor</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-4 h-4 text-indigo-500 mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-gray-700">Condensadores Evaporativos y Torres de Enfriamiento</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg fade-in-up delay-3">
-                    <h3 class="text-xl font-bold mb-2 text-blue-800">Biocidas</h3>
-                    <ul class="list-disc list-inside text-gray-700 space-y-1">
-                        <li>Condensadores Evaporativos y Torres de Enfriamiento </li>
-                    </ul>
+
+                <!-- Product 3 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md product-card fade-in-up delay-3">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div
+                                class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 mr-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-purple-800">Biocidas</h3>
+                        </div>
+                        <ul class="space-y-2 pl-4">
+                            <li class="flex items-start">
+                                <svg class="w-4 h-4 text-purple-500 mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-gray-700">Condensadores Evaporativos y Torres de Enfriamiento</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg fade-in-up delay-1">
-                    <h3 class="text-xl font-bold mb-2 text-blue-800">Floculantes y Coagulantes</h3>
-                    <ul class="list-disc list-inside text-gray-700 space-y-1">
-                        <li>Clarificación de Aguas y RILES </li>
-                        <li>Deshidratación de Lodos </li>
-                    </ul>
+
+                <!-- Product 4 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md product-card fade-in-up delay-1">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div
+                                class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600 mr-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-green-800">Floculantes y Coagulantes</h3>
+                        </div>
+                        <ul class="space-y-2 pl-4">
+                            <li class="flex items-start">
+                                <svg class="w-4 h-4 text-green-500 mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-gray-700">Clarificación de Aguas y RILES</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-4 h-4 text-green-500 mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-gray-700">Deshidratación de Lodos</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-lg fade-in-up delay-2">
                     <h3 class="text-xl font-bold mb-2 text-blue-800">Anticongelantes</h3>
