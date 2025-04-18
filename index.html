@@ -133,6 +133,107 @@
             width: 100px;
             margin: 0 auto;
         }
+
+
+        .client-section {
+            padding: 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+
+        .logo-carousel-container {
+            padding: 2rem 0;
+            border-radius: 0.5rem;
+            margin: 0 auto;
+            max-width: 90%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .logo-carousel {
+            display: flex;
+            animation: scroll 30s linear infinite;
+        }
+
+        .logo-item {
+            flex: 0 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 200px;
+            height: 80px;
+        }
+
+        .logo-item img {
+            max-width: 100%;
+            max-height: 100%;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+
+        .logo-item:hover img {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        /* Animation for logo carousel */
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        .fade-overlay {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 80px;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .fade-left {
+            left: 0;
+            background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0));
+        }
+
+        .fade-right {
+            right: 0;
+            background: linear-gradient(to left, #fff, rgba(255, 255, 255, 0));
+        }
+
+        /* Animation class */
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
     </style>
 </head>
 
@@ -429,16 +530,60 @@
                         </ul>
                     </div>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg fade-in-up delay-2">
-                    <h3 class="text-xl font-bold mb-2 text-blue-800">Anticongelantes</h3>
-                    <ul class="list-disc list-inside text-gray-700 space-y-1">
-                        <li>Monoetilenglicol </li>
-                        <li>Propilenglicol </li>
-                    </ul>
+
+                <!-- Anticongelantes -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md product-card fade-in-up delay-2">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div
+                                class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600 mr-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-green-800">Anticongelantes</h3>
+                        </div>
+                        <ul class="space-y-2 pl-4">
+                            <li class="flex items-start">
+                                <svg class="w-4 h-4 text-green-500 mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-gray-700">Monoetilenglicol</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-4 h-4 text-green-500 mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-gray-700">Propilenglicol</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg fade-in-up delay-3 flex items-center justify-center">
-                    <p class="text-lg text-center text-gray-600">Y otras especialidades químicas para la industria
-                        general.</p>
+
+                <!-- Other Chemical Specialties -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md product-card fade-in-up delay-3">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div
+                                class="w-10 h-10 rounded-full bg-yellow-100 flex items-center justify-center text-yellow-600 mr-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-yellow-800">Especialidades Químicas</h3>
+                        </div>
+                        <div class="pl-4">
+                            <p class="text-gray-700">Y otras especialidades químicas para la industria general.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -446,139 +591,257 @@
 
     <section id="services" class="py-20 bg-white">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-blue-900 fade-in-up">Servicios y Equipos
-            </h2>
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 fade-in-up">Servicios y Equipos</h2>
+                <div class="fancy-separator my-4 fade-in-up delay-1"></div>
+            </div>
             <div class="grid lg:grid-cols-2 gap-16">
-                <div class="fade-in-up delay-1">
-                    <h3 class="text-2xl font-bold mb-6 text-blue-800">Servicios Integrales </h3>
-                    <ul class="space-y-4">
-                        <li class="flex items-start">
-                            <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="currentColor"
-                                viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd"
-                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <span>Asistencia técnica post venta especializada.</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="currentColor"
-                                viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd"
-                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <span>Visitas periódicas adaptadas a su tratamiento químico.</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="currentColor"
-                                viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd"
-                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <span>Limpiezas químicas eficientes para equipos y líneas de transporte de agua.</span>
-                        </li>
-                    </ul>
+                <div class="bg-white rounded-xl overflow-hidden shadow-md fade-in-up delay-1">
+                    <div class="p-6">
+                        <div class="flex items-center mb-6">
+                            <div
+                                class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 mr-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-bold text-blue-800">Servicios Integrales</h3>
+                        </div>
+                        <ul class="space-y-4 pl-4">
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="currentColor"
+                                    viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-gray-700">Asistencia técnica post venta especializada.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="currentColor"
+                                    viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-gray-700">Visitas periódicas adaptadas a su tratamiento
+                                    químico.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="currentColor"
+                                    viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-gray-700">Limpiezas químicas eficientes para equipos y líneas de
+                                    transporte de agua.</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="fade-in-up delay-2">
-                    <h3 class="text-2xl font-bold mb-6 text-blue-800">Equipamiento de Calidad</h3>
-                    <ul class="space-y-4">
-                        <li class="flex items-start">
-                            <svg class="w-6 h-6 text-blue-500 mr-3 flex-shrink-0" fill="currentColor"
-                                viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd"
-                                    d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <span>Bombas dosificadoras, filtros, sistemas de dosificación (manual/automático),
-                                ablandadores.</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-6 h-6 text-blue-500 mr-3 flex-shrink-0" fill="currentColor"
-                                viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd"
-                                    d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <span>Sistemas de potabilización de agua, caudalímetros, control automático de
-                                purgas.</span>
-                        </li>
-                    </ul>
+                <div class="bg-white rounded-xl overflow-hidden shadow-md fade-in-up delay-2">
+                    <div class="p-6">
+                        <div class="flex items-center mb-6">
+                            <div
+                                class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 mr-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-bold text-indigo-800">Equipamiento de Calidad</h3>
+                        </div>
+                        <ul class="space-y-4 pl-4">
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-blue-500 mr-3 flex-shrink-0" fill="currentColor"
+                                    viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-gray-700">Bombas dosificadoras, filtros, sistemas de dosificación
+                                    (manual/automático),
+                                    ablandadores.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-blue-500 mr-3 flex-shrink-0" fill="currentColor"
+                                    viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-gray-700">Sistemas de potabilización de agua, caudalímetros, control
+                                    automático de
+                                    purgas.</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+
+    <section class="client-section bg-white">
+
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 fade-in-up">Varias marcas ya confían en nosotros
+            </h2>
+            <div class="fancy-separator my-4 fade-in-up delay-1"></div>
+        </div>
+
+        <div class="logo-carousel-container fade-in-up delay-2">
+            <div class="fade-overlay fade-left"></div>
+            <div class="fade-overlay fade-right"></div>
+
+            <div class="logo-carousel">
+                <!-- First set of logos -->
+                <div class="logo-item">
+                    <img src="./assets/images/databam.png" alt="Cliente 1">
+                </div>
+                <div class="logo-item">
+                    <img src="./assets/images/databam.png" alt="Cliente 2">
+                </div>
+                <div class="logo-item">
+                    <img src="./assets/images/databam.png" alt="Cliente 3">
+                </div>
+                <div class="logo-item">
+                    <img src="./assets/images/databam.png" alt="Cliente 4">
+                </div>
+                <div class="logo-item">
+                    <img src="./assets/images/databam.png" alt="Cliente 5">
+                </div>
+                <div class="logo-item">
+                    <img src="./assets/images/databam.png" alt="Cliente 6">
+                </div>
+                <div class="logo-item">
+                    <img src="./assets/images/databam.png" alt="Cliente 7">
+                </div>
+                <div class="logo-item">
+                    <img src="./assets/images/databam.png" alt="Cliente 8">
+                </div>
+
+                <!-- Duplicate logos for seamless looping -->
+                <div class="logo-item">
+                    <img src="./assets/images/databam.png" alt="Cliente 1">
+                </div>
+                <div class="logo-item">
+                    <img src="./assets/images/databam.png" alt="Cliente 2">
+                </div>
+                <div class="logo-item">
+                    <img src="./assets/images/databam.png" alt="Cliente 3">
+                </div>
+                <div class="logo-item">
+                    <img src="./assets/images/databam.png" alt="Cliente 4">
+                </div>
+                <div class="logo-item">
+                    <img src="./assets/images/databam.png" alt="Cliente 5">
+                </div>
+                <div class="logo-item">
+                    <img src="./assets/images/databam.png" alt="Cliente 6">
+                </div>
+                <div class="logo-item">
+                    <img src="./assets/images/databam.png" alt="Cliente 7">
+                </div>
+                <div class="logo-item">
+                    <img src="./assets/images/databam.png" alt="Cliente 8">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
     <section id="contact" class="py-20 section-bg">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-blue-900 fade-in-up">Póngase en Contacto
-            </h2>
-            <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-xl fade-in-up delay-1">
-                <p class="text-center text-lg text-gray-700 mb-8">Para más información sobre nuestros productos y
-                    servicios, o para realizar un pedido, no dude en contactarnos. Estamos aquí para ayudarle.</p>
-                <div class="grid md:grid-cols-2 gap-10">
-                    <form action="#" method="POST">
-                        <div class="mb-4">
-                            <label for="name" class="block text-gray-700 font-bold mb-2">Nombre</label>
-                            <input type="text" id="name" name="nombre" placeholder="Su nombre completo" required
-                                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-blue-900 fade-in-up">Póngase en Contacto</h2>
+                <div class="fancy-separator my-4 fade-in-up delay-1"></div>
+            </div>
 
-                        </div>
-                        <div class="mb-4">
-                            <label for="email" class="block text-gray-700 font-bold mb-2">Email</label>
-                            <input type="email" id="email" name="email" placeholder="Su correo electrónico" required
-                                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <div class="max-w-4xl mx-auto bg-white rounded-xl overflow-hidden shadow-md fade-in-up delay-1">
+                <div class="p-8">
+                    <p class="text-center text-lg text-gray-700 mb-8">Para más información sobre nuestros productos y
+                        servicios, o para realizar un pedido, no dude en contactarnos. Estamos aquí para ayudarle.</p>
+                    <div class="grid md:grid-cols-2 gap-10">
+                        <form action="#" method="POST">
+                            <div class="mb-4">
+                                <label for="name" class="block text-gray-700 font-bold mb-2">Nombre</label>
+                                <input type="text" id="name" name="nombre" placeholder="Su nombre completo" required
+                                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div class="mb-4">
+                                <label for="email" class="block text-gray-700 font-bold mb-2">Email</label>
+                                <input type="email" id="email" name="email" placeholder="Su correo electrónico" required
+                                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div class="mb-6">
+                                <label for="message" class="block text-gray-700 font-bold mb-2">Mensaje</label>
+                                <textarea id="message" name="mensaje" rows="4" placeholder="Su consulta o requerimiento"
+                                    required
+                                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit"
+                                    class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full transition duration-300">
+                                    Enviar Mensaje
+                                </button>
+                            </div>
+                        </form>
 
-                        </div>
-                        <div class="mb-6">
-                            <label for="message" class="block text-gray-700 font-bold mb-2">Mensaje</label>
-                            <textarea id="message" name="mensaje" rows="4" placeholder="Su consulta o requerimiento"
-                                required
-                                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                        <div class="bg-white rounded-xl overflow-hidden p-6">
+                            <div class="flex items-center mb-6">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 mr-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                    </svg>
+                                </div>
+                                <h3 class="text-xl font-bold text-blue-800">Información de Contacto Directo</h3>
+                            </div>
 
-                        </div>
-                        <div class="text-center">
-                            <button type="submit"
-                                class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full transition duration-300">
-                                Enviar Mensaje
-                            </button>
-                        </div>
-                    </form>
-
-                    <div class="space-y-6">
-                        <h3 class="text-xl font-bold text-blue-800 border-b pb-2">Información de Contacto Directo</h3>
-                        <div>
-                            <p class="flex items-center mb-2">
-                                <svg class="w-5 h-5 text-blue-600 mr-2" fill="currentColor" viewBox="0 0 20 20"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M10 2a5 5 0 00-5 5c0 1.274.44 2.46 1.197 3.426l-.001.002 3.72 5.177a1 1 0 001.63-.01l.006-.008 3.715-5.17A5.002 5.002 0 0015 7a5 5 0 00-5-5zm0 8a3 3 0 110-6 3 3 0 010 6z">
-                                    </path>
-                                </svg>
-                                <strong class="mr-2">Alfredo Canepa M.</strong>
-                            </p>
-                            <p class="ml-7 mb-4 text-gray-700">
-                                <a href="tel:+56968346728" class="hover:text-blue-700">+56 9 6834 6728</a><br>
-                                <a href="mailto:ar.canepa@quimagua.cl"
-                                    class="hover:text-blue-700">ar.canepa@quimagua.cl</a>
-                            </p>
-                        </div>
-                        <div>
-                            <p class="flex items-center mb-2">
-                                <svg class="w-5 h-5 text-blue-600 mr-2" fill="currentColor" viewBox="0 0 20 20"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M10 2a5 5 0 00-5 5c0 1.274.44 2.46 1.197 3.426l-.001.002 3.72 5.177a1 1 0 001.63-.01l.006-.008 3.715-5.17A5.002 5.002 0 0015 7a5 5 0 00-5-5zm0 8a3 3 0 110-6 3 3 0 010 6z">
-                                    </path>
-                                </svg>
-                                <strong class="mr-2">Luis Galvez O.</strong>
-                            </p>
-                            <p class="ml-7 text-gray-700">
-                                <a href="tel:+56974792802" class="hover:text-blue-700">+56 9 7479 2802</a><br>
-                                <a href="mailto:le.galvez@quimagua.cl"
-                                    class="hover:text-blue-700">le.galvez@quimagua.cl</a>
-                            </p>
+                            <div class="space-y-6 pl-4">
+                                <div>
+                                    <p class="flex items-center mb-2">
+                                        <svg class="w-5 h-5 text-blue-600 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M10 2a5 5 0 00-5 5c0 1.274.44 2.46 1.197 3.426l-.001.002 3.72 5.177a1 1 0 001.63-.01l.006-.008 3.715-5.17A5.002 5.002 0 0015 7a5 5 0 00-5-5zm0 8a3 3 0 110-6 3 3 0 010 6z">
+                                            </path>
+                                        </svg>
+                                        <strong class="mr-2 text-gray-900">Alfredo Canepa M.</strong>
+                                    </p>
+                                    <p class="ml-7 mb-4 text-gray-700">
+                                        <a href="tel:+56968346728" class="hover:text-blue-700">+56 9 6834 6728</a><br>
+                                        <a href="mailto:ar.canepa@quimagua.cl"
+                                            class="hover:text-blue-700">ar.canepa@quimagua.cl</a>
+                                    </p>
+                                </div>
+                                <div>
+                                    <p class="flex items-center mb-2">
+                                        <svg class="w-5 h-5 text-blue-600 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M10 2a5 5 0 00-5 5c0 1.274.44 2.46 1.197 3.426l-.001.002 3.72 5.177a1 1 0 001.63-.01l.006-.008 3.715-5.17A5.002 5.002 0 0015 7a5 5 0 00-5-5zm0 8a3 3 0 110-6 3 3 0 010 6z">
+                                            </path>
+                                        </svg>
+                                        <strong class="mr-2 text-gray-900">Luis Galvez O.</strong>
+                                    </p>
+                                    <p class="ml-7 text-gray-700">
+                                        <a href="tel:+56974792802" class="hover:text-blue-700">+56 9 7479 2802</a><br>
+                                        <a href="mailto:le.galvez@quimagua.cl"
+                                            class="hover:text-blue-700">le.galvez@quimagua.cl</a>
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
